@@ -1,4 +1,8 @@
 @font-face {
   font-family: 'SugarMagic';
-  src: url('font/sugarmagic.ttf') format ('truetype');
+  src: url('font/sugarmagic.ttf') format('truetype');
+}
+
+.font-sugarmagic {
+  font-family: 'SugarMagic', cursive;
 }
