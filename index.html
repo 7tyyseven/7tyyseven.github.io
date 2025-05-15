@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CameraLux - Premium Kamera Store</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #1a1a1a;
+      color: #ffffff;
+    }
+
+    .premium-gradient {
+      background: linear-gradient(135deg, #121212, #2a2a2a);
+    }
+
+    .premium-gold {
+      color: #f0c674;
+    }
+
+    .btn-premium {
+      position: relative;
+      overflow: hidden;
+      background-color: #f0c674;
+      color: #121212;
+      padding: 10px 30px;
+      font-weight: 600;
+      border-radius: 8px;
+      border: 2px solid transparent;
+      transition: 0.3s ease-in-out;
+    }
+
+    .btn-premium:hover {
+      background-color: #e0b56d;
+      cursor: pointer;
+    }
+
+    .btn-premium::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background-color: #ffffff;
+      opacity: 0.5;
+      transition: all 0.4s ease;
+    }
+
+    .btn-premium:hover::before {
+      left: 100%;
+    }
+
+    .product-img {
+      transition: transform 0.3s ease;
+    }
+
+    .product-img:hover {
+      transform: scale(1.1);
+    }
+
+    .product-card {
+      background-color: #2a2a2a;
+      border-radius: 20px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .product-card:hover {
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5);
+      transform: scale(1.05);
+    }
+
+    .fade-in {
+      animation: fadeIn 1s ease-out;
+    }
+
+    .slide-up {
+      animation: slideUp 1s ease-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes slideUp {
+      from {
+        transform: translateY(30px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    .camera-vector {
+      width: 120px;
+      height: auto;
+      animation: slideUp 2s ease-out;
+      margin: 0 auto 20px;
+    }
+
+    .logo-camera {
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 4;
+    }
+
+    .loading-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #121212;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      opacity: 1;
+      transition: opacity 1s ease-in-out;
+    }
+
+    .loading-logo {
+      width: 150px;
+      height: auto;
+      animation: loadingAnimation 2s ease-in-out infinite;
+    }
+
+    @keyframes loadingAnimation {
+      0% {
+        transform: scale(0.8);
+        opacity: 0.5;
+      }
+      50% {
+        transform: scale(1.2);
+        opacity: 1;
+      }
+      100% {
+        transform: scale(0.8);
+        opacity: 0.5;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Loading Screen -->
+  <div id="loading-screen" class="loading-screen">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" class="loading-logo">
+      <rect x="10" y="18" width="44" height="28" rx="10" ry="10" class="logo-camera" />
+      <circle cx="32" cy="32" r="8" class="logo-camera" />
+      <circle cx="32" cy="32" r="5" class="logo-camera" />
+      <circle cx="32" cy="32" r="3" class="logo-camera" />
+    </svg>
+  </div>
+
+  <header class="bg-gray-900 shadow-md sticky top-0 z-10 fade-in">
+    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+      <nav>
+        <ul class="flex space-x-6">
+          <li><a href="#products" class="hover:text-yellow-300">Produk</a></li>
+          <li><a href="#about" class="hover:text-yellow-300">Tentang</a></li>
+          <li><a href="#contact" class="hover:text-yellow-300">Kontak</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="premium-gradient py-20 text-center text-white slide-up">
+    <h2 class="text-5xl font-extrabold mb-4 premium-gold">Temukan Kamera Impianmu</h2>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" class="camera-vector">
+      <rect x="10" y="18" width="44" height="28" rx="10" ry="10" class="logo-camera" />
+      <circle cx="32" cy="32" r="8" class="logo-camera" />
+      <circle cx="32" cy="32" r="5" class="logo-camera" />
+      <circle cx="32" cy="32" r="3" class="logo-camera" />
+    </svg>
+    <p class="text-xl max-w-xl mx-auto mb-12">Fujifilm, Sony, dan Canon tersedia untuk pengalaman fotografi premium kelas atas</p>
+  </section>
+
+  <section id="products" class="container mx-auto px-6 py-16">
+    <h3 class="text-4xl font-bold text-center mb-12 premium-gold fade-in">Produk Unggulan</h3>
+    <div class="grid md:grid-cols-3 gap-12">
+      <!-- Fujifilm -->
+      <div class="product-card fade-in">
+        <img src="https://raw.githubusercontent.com/7tyyseven/Gambar-web/main/c0d6bb34dd1382fcf08427d2439a1c84.jpg" alt="Fujifilm X-T4" class="w-full h-64 object-cover product-img">
+        <div class="p-6">
+          <h4 class="text-2xl font-semibold mb-2">Fujifilm X-T4</h4>
+          <p class="text-gray-300 mb-4">Kamera mirrorless dengan fitur stabilisasi canggih dan desain retro modern.</p>
+          <p class="premium-gold font-bold text-lg mb-4">Rp 18.000.000</p>
+          <button class="btn-premium">Beli Sekarang</button>
+        </div>
+      </div>
+
+      <!-- Sony -->
+      <div class="product-card fade-in">
+        <img src=https://raw.githubusercontent.com/7tyyseven/Gambar-web/main/highres-Sony-Alpha-A7-III-taken-with-A7III-Custom_1519667502.jpg alt="Sony Alpha A7 III" class="w-full h-64 object-cover product-img">
+        <div class="p-6">
+          <h4 class="text-2xl font-semibold mb-2">Sony Alpha A7 III</h4>
+          <p class="text-gray-300 mb-4">Performa luar biasa dengan sensor full-frame dan autofocus presisi tinggi.</p>
+          <p class="premium-gold font-bold text-lg mb-4">Rp 27.000.000</p>
+          <button class="btn-premium">Beli Sekarang</button>
+        </div>
+      </div>
+
+      <!-- Canon -->
+      <div class="product-card fade-in">
+        <img src="https://raw.githubusercontent.com/7tyyseven/Gambar-web/refs/heads/main/Canon-EOS-R6-Mark-II-3.webp" alt="Canon EOS R6" class="w-full h-64 object-cover product-img">
+        <div class="p-6">
+          <h4 class="text-2xl font-semibold mb-2">Canon EOS R6</h4>
+          <p class="text-gray-300 mb-4">Kamera mirrorless cepat dan handal dengan video 4K dan Dual Pixel AF.</p>
+          <p class="premium-gold font-bold text-lg mb-4">Rp 32.000.000</p>
+          <button class="btn-premium">Beli Sekarang</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="bg-gray-800 py-16 slide-up">
+    <div class="container mx-auto px-6 text-center">
+      <h3 class="text-4xl font-bold mb-4 premium-gold">Tentang CameraLux</h3>
+      <p class="text-gray-300 max-w-2xl mx-auto text-lg">Kami adalah toko kamera online premium yang menyediakan produk terbaik dari merek terpercaya. Komitmen kami adalah menghadirkan kualitas dan pelayanan terbaik untuk kebutuhan fotografi profesional Anda.</p>
+    </div>
+  </section>
+
+  <section id="contact" class="bg-gray-900 py-16 slide-up">
+    <div class="container mx-auto px-6 text-center">
+      <h3 class="text-4xl font-bold mb-4 premium-gold">Hubungi Kami</h3>
+      <p class="text-gray-400 mb-2 text-lg">Email: support@cameralux.com</p>
+      <p class="text-gray-400 text-lg">Telepon: +62 812 3456 7890</p>
+    </div>
+  </section>
+
+  <footer class="bg-gray-800 text-center py-6 mt-12 shadow-inner">
+    <p class="text-gray-500 text-sm">&copy; 2025 CameraLux. Semua Hak Dilindungi.</p>
+  </footer>
+
+  <script>
+    window.onload = function () {
+      const loading = document.getElementById('loading-screen');
+      loading.style.opacity = '0';
+      setTimeout(() => loading.style.display = 'none', 1000);
+    };
+  </script>
+
+</body>
+</html>
