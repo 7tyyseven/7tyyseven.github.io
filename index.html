@@ -240,7 +240,7 @@
     </div>
   </section>
 
-  <footer class="bg-gray-800 text-center py-6 mt-12 shadow-inner">
+    <footer class="bg-gray-800 text-center py-6 mt-12 shadow-inner">
     <p class="text-gray-500 text-sm">&copy; 2025 CameraLux by se7en. Semua Hak Dilindungi.</p>
   </footer>
 
@@ -250,6 +250,13 @@
       loading.style.opacity = '0';
       setTimeout(() => loading.style.display = 'none', 1000);
     };
+
+    // Tambahan: Tampilkan alert saat tombol "Beli Sekarang" diklik
+    document.querySelectorAll('.btn-premium').forEach(button => {
+      button.addEventListener('click', () => {
+        alert('Scammed lol XD');
+      });
+    });
   </script>
 
 </body>
